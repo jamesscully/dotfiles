@@ -38,8 +38,6 @@ bindsym $mod+Shift+q kill
 
 new_window 1pixel
 
-exec steam-runtime
-exec discord
 exec setxkbmap gb
 exec compton
 exec feh --bg-fill .customstuff
@@ -148,23 +146,21 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-bindsym $mod+s workspace 11
 
-workspace 11 output $mon3
 
-workspace 1 output $mon1
-workspace 2 output $mon2
-workspace 3 output $mon3
 
-workspace 4 output $mon1
-workspace 5 output $mon2
-workspace 6 output $mon3
 
-workspace 7 output $mon1
-workspace 8 output $mon2
-workspace 9 output $mon3
 
-workspace 10 output HDMI-1
+
+
+
+
+
+
+
+
+
+
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
