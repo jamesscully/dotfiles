@@ -38,8 +38,10 @@ bindsym $mod+Shift+q kill
 
 new_window 1pixel
 
-exec steam-runtime
-exec discord
+
+exec --no-startup-id i3-msg 'workspace 11; exec steam'
+exec --no-startup-id i3-msg 'workspace 11; exec discord'
+
 exec setxkbmap gb
 exec compton
 exec feh --bg-fill .customstuff
