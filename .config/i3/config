@@ -46,7 +46,7 @@ exec setxkbmap gb
 exec compton
 exec feh --bg-fill .customstuff
 exec polybar example
-exec $HOME/.customstuff/darkmode.sh 
+exec $HOME/.customstuff/darkmode.sh --no-toggle
 
 for_window [class="^.*"] border pixel 0
 gaps inner 3

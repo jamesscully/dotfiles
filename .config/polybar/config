@@ -84,7 +84,8 @@ cursor-scroll = ns-resize
 [module/darkmode]
 type = custom/script
 interval=1
-exec = cat $HOME/.customstuff/dark_text
+exec = $HOME/.customstuff/darkmode.sh --status
+label = %output%
 click-left = $HOME/.customstuff/darkmode.sh
 format-underline = #5a5a5a
 
