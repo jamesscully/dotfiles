@@ -1,5 +1,6 @@
 export PATH=$PATH:~/bashscripts
 export EDITOR='vim'
+export TERMINAL='alacritty'
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'

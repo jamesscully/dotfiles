@@ -30,7 +30,7 @@ font pango:DejaVu Sans Mono 7
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+f exec firefox
 
 # kill focused window
@@ -46,15 +46,22 @@ exec setxkbmap gb
 exec compton
 exec feh --bg-fill .customstuff
 exec polybar example
+
+
+exec flameshot
+bindsym Print exec flameshot gui
+
 exec $HOME/.customstuff/darkmode.sh --no-toggle
 
 for_window [class="^.*"] border pixel 0
+
+no_focus [class="^.*"]
+
 gaps inner 3
 
 client.focused          #000000 #4F4F4F #FFFFFF #636363   #636363
 
 for_window [class="setsplit" instance="setsplit"] floating enable
-
 
 # start dmenu (a program launcher)
 
@@ -132,12 +139,16 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
 
 set $mon1 "DVI-D-0"
 set $mon2 "HDMI-0"
 set $mon3 "HDMI-1"
 
-
+assign [class="RocketLeague"] $ws2
+assign [class="Steam"] $ws11
+assign [class="steam"] $ws11
+assign [class="discord"] $ws11
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
