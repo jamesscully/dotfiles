@@ -15,4 +15,5 @@ alias ls='ls --color=auto'
 alias grep='grep --color'
 alias v='vim'
 alias r='ranger'
-
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
+alias speedtest='speedtest --bytes'

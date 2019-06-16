@@ -141,9 +141,14 @@ set $ws9 "9"
 set $ws10 "10"
 set $ws11 "11"
 
-set $mon1 "DVI-D-0"
-set $mon2 "HDMI-0"
-set $mon3 "HDMI-1"
+# set $mon1 "DVI-D-0"
+# set $mon2 "HDMI-0"
+# set $mon3 "HDMI-1"
+
+set $mon1 "HDMI-1"
+set $mon2 "DVI-D-0"
+set $mon3 "HDMI-0"
+
 
 assign [class="RocketLeague"] $ws2
 assign [class="Steam"] $ws11
