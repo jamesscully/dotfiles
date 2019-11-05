@@ -43,10 +43,12 @@ exec --no-startup-id i3-msg 'workspace 11; exec steam'
 exec --no-startup-id i3-msg 'workspace 11; exec discord'
 
 exec setxkbmap gb
-exec compton
-exec feh --bg-fill .customstuff
-exec polybar example
+#exec compton
 
+exec ~/.customstuff/darkmode.sh --no-toggle
+exec ~/bashscripts/grabSteamCode.sh
+exec polybar example
+exec kdeconnect-cli
 
 exec flameshot
 bindsym Print exec flameshot gui
@@ -54,8 +56,9 @@ bindsym Print exec flameshot gui
 exec $HOME/.customstuff/darkmode.sh --no-toggle
 
 for_window [class="^.*"] border pixel 0
+for_window [class="Firefox"] floating disable
 
-no_focus [class="^.*"]
+no_focus [class="RocketLeague"]
 
 gaps inner 3
 
@@ -204,6 +207,12 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym $mod+G mode "gaming"
+mode "gaming" {
+	bindsym $mod+G mode "default"
+}
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

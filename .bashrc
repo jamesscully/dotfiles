@@ -17,3 +17,20 @@ alias v='vim'
 alias r='ranger'
 alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
 alias speedtest='speedtest --bytes'
+alias clip='xclip -selection clipboard'
+
+
+
+# easily skip from root of Android project to code
+alias andSkip='cd app/src/main/java/com/'
+
+alias dsi='cd ~/Dissertation/'
+
+export HOME=/mnt/data/home
+
+bak() {
+	cp $1 $1.bak
+}
+
+
+source ~/.devfolders

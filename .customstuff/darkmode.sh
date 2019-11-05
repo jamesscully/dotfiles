@@ -36,18 +36,19 @@ setBackground() {
 
 ## load $wallpaper variable
 getBackground() {
-	if [ "$status" = "1" ]; then
+	if [ "$status" = "0" ]; then
 	       	wallpaper=$walldark
-        elif [ "$status" = "0" ]; then
+        elif [ "$status" = "1" ]; then
         	wallpaper=$walllight
         else 
         	echo "Error in $darkswitch; only 0 or 1 permitted"
-        	exit
+        	exit 1
         fi
 }
 
 if [ "$1" = "--status" ]; then
 	printStatus
+	exit 0
 fi
 
 getBackground
@@ -55,11 +56,12 @@ setBackground
 
 
 ## don't flip if we're not toggling
-if [ "$1" = "--no-toggle" ]; then exit; fi
+if [ "$1" = "--no-toggle" ]; then 
+	exit 0
+fi
 
 # flip dark status
 ((status ^= 1))
 
 echo $status > $darkswitch
 echo $status
-
