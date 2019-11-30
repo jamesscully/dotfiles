@@ -34,3 +34,5 @@ bak() {
 
 
 source ~/.devfolders
+
+export PATH=$HOME/bin:$PATH

@@ -52,6 +52,7 @@ exec kdeconnect-cli
 
 exec flameshot
 bindsym Print exec flameshot gui
+bindsym $mod+Print exec flameshot screen -c
 
 exec $HOME/.customstuff/darkmode.sh --no-toggle
 
