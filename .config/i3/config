@@ -33,6 +33,11 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+f exec firefox
 
+
+#suspend system
+
+bindsym $mod+Shift+Pause exec systemctl suspend
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -150,7 +155,7 @@ set $ws11 "11"
 # set $mon3 "HDMI-1"
 
 set $mon1 "HDMI-1"
-set $mon2 "DVI-D-0"
+set $mon2 "DP-2"
 set $mon3 "HDMI-0"
 
 
