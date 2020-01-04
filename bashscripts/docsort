@@ -1,0 +1,120 @@
+#!/bin/bash
+
+MUSIC_TYPES=(mp3 wav flac)
+DOCUMENT_TYPES=(docx doc pdf odt tex)
+VIDEO_TYPES=(mp4 webm)
+IMAGE_TYPES=(png jpg jpeg gif xcf)
+PROGRAMMING_TYPES=(c cpp java)
+
+IMAGE_ROOT=$HOME/Pictures
+VIDEO_ROOT=$HOME/Videos
+MUSIC_ROOT=$HOME/Music 
+DOCUMENT_ROOT=$HOME/Documents 
+PROGRAMMING_ROOT=$HOME/Code
+
+## find files with type, if found print
+## $1 = type
+filesExist() {
+    count=$(ls -1 *.$1 2>/dev/null | wc -l)
+
+
+    if [ $count -lt 1 ]; then
+        return 0
+    else
+        echo "Found $count .$1 files: "
+        find *.$type | sed 's/^/    /'
+        return 1
+    fi
+}
+
+## $1 = type to move 
+## $2 = destination
+moveFiles() { 
+    echo "Moving .$1 files"
+    mv *.$1 $2
+}
+
+# ensure folders exist
+if [ ! -e $MUSIC_ROOT ]; then mkdir $MUSIC_ROOT; fi
+if [ ! -e $IMAGE_ROOT ]; then 
+    mkdir $IMAGE_ROOT
+    mkdir $IMAGE_ROOT/animated
+    mkdir $IMAGE_ROOT/static 
+    mkdir $IMAGE_ROOT/project
+fi
+if [ ! -e $VIDEO_ROOT ]; then mkdir $VIDEO_ROOT; fi
+if [ ! -e $DOCUMENT_ROOT ]; then 
+    mkdir $DOCUMENT_ROOT
+    mkdir $DOCUMENT_ROOT/pdf
+    mkdir $DOCUMENT_ROOT/openoffice
+    mkdir $DOCUMENT_ROOT/latex
+fi
+
+if [ ! -e $PROGRAMMING_ROOT ]; then 
+    mkdir $PROGRAMMING_ROOT
+    mkdir $PROGRAMMING_ROOT/c
+    mkdir $PROGRAMMING_ROOT/cpp
+    mkdir $PROGRAMMING_ROOT/java
+fi
+
+
+for type in ${MUSIC_TYPES[@]}; do
+    if filesExist $type; then continue; fi
+
+    moveFiles $type $MUSIC_ROOT
+done
+
+for type in ${IMAGE_TYPES[@]}; do
+
+    # if no files, continue
+    if filesExist $type; then continue; fi
+
+    # filter animated pictures - these can be kept seperate
+    if [ "$type" = "gif" ]; then
+        moveFiles $type $IMAGE_ROOT/animated
+    fi
+    
+    moveFiles $type $IMAGE_ROOT/static
+done
+
+for type in ${VIDEO_TYPES[@]}; do
+
+    if filesExist $type; then continue; fi
+
+    moveFiles $type $VIDEO_ROOT
+done
+
+for type in ${DOCUMENT_TYPES[@]}; do
+
+    if filesExist $type; then continue; fi
+
+    if [ "$type" = "pdf" ]; then
+        moveFiles $type $DOCUMENT_ROOT/pdf
+    fi
+
+    if [ "$type" = "tex" ]; then
+        moveFiles $type $DOCUMENT_ROOT/latex
+    fi
+
+    if [ "$type" = "odt" ]; then
+        moveFiles $type $DOCUMENT_ROOT/openoffice
+    fi
+
+done
+
+for type in ${PROGRAMMING_TYPES[@]}; do
+    if filesExist $type; then continue; fi
+
+    if [ "$type" = "c" ]; then
+        moveFiles $type $PROGRAMMING_ROOT/c
+    fi
+
+    if [ "$type" = "cpp" ]; then
+        moveFiles $type $PROGRAMMING_ROOT/cpp
+    fi
+
+    if [ "$type" = "java" ]; then
+        moveFiles $type $PROGRAMMING_ROOT/java
+    fi
+
+done

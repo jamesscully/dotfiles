@@ -1,0 +1,18 @@
+#!/bin/bash
+
+ARGS_NUM=$#
+ARCHIVE_FOLDER="$HOME/Archive"
+
+if [ "$ARGS_NUM" = "1" ]; then
+	mv $1 $ARCHIVE_FOLDER
+	exit
+fi
+
+if [ "$1" = "c" ]; then 
+	mv "$2" "$ARCHIVE_FOLDER/coursework"
+fi
+
+
+
+
+

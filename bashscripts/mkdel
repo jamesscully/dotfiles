@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ "$#" -lt 1 ]; then
+    echo "No files specified."
+    exit
+fi
+
+if [ ! -d "$HOME/deletion" ]; then
+    echo "No deletion folder, creating at $HOME"
+    mkdir $HOME/deletion
+fi
+
+for arg in "$@"
+do
+    mv $arg $HOME/deletion
+done
+
