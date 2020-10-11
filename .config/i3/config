@@ -50,12 +50,14 @@ exec --no-startup-id i3-msg 'workspace 11; exec discord'
 exec setxkbmap gb
 #exec compton
 
-exec ~/.customstuff/darkmode.sh --no-toggle
 exec ~/bashscripts/grabSteamCode.sh
 exec polybar example
 exec kdeconnect-cli
 
 exec flameshot
+
+exec start_python_bot
+
 bindsym Print exec flameshot gui
 bindsym $mod+Print exec flameshot screen -c
 
@@ -64,17 +66,26 @@ exec $HOME/.customstuff/darkmode.sh --no-toggle
 for_window [class="^.*"] border pixel 0
 for_window [class="Firefox"] floating disable
 
-no_focus [class="RocketLeague"]
+for_window [title="G53GRAOPENGL"] floating enable
+for_window [title="G53GRAOPENGL"] move position 1643 147
+
+no_focus [class="steam_app_252950"]
 
 gaps inner 3
+
+# for dissertation presentation
+#gaps inner 12
+#gaps outer 3
 
 client.focused          #000000 #4F4F4F #FFFFFF #636363   #636363
 
 for_window [class="setsplit" instance="setsplit"] floating enable
-
+for_window [class="Unity" instance="Unity"] floating disable
 # start dmenu (a program launcher)
 
 bindsym $mod+d exec rofi -show run 
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+t exec thunar
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -87,8 +98,9 @@ bindsym $mod+d exec rofi -show run
 # bindsym $mod+l focus up
 # bindsym $mod+semicolon focus right
 
-bindsym $mod+q sticky toggle
+#bindsym $mod+q sticky toggle
 
+#bindsym $mod+q gaps outer all plus 5
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -97,12 +109,6 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 bindsym $mod+Mouse4 focus left
 
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -154,15 +160,17 @@ set $ws11 "11"
 # set $mon2 "HDMI-0"
 # set $mon3 "HDMI-1"
 
-set $mon1 "HDMI-1"
+set $mon1 "DVI-D-0"
 set $mon2 "DP-2"
 set $mon3 "HDMI-0"
 
 
 assign [class="RocketLeague"] $ws2
+assign [class="steam_app_252950"] $ws2
 assign [class="Steam"] $ws11
 assign [class="steam"] $ws11
 assign [class="discord"] $ws11
+assign [title="Steam Login"] $ws11
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1

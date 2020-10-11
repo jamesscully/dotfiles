@@ -11,7 +11,7 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-export HOME=/mnt/data/home
+export HOME=/home/yames
 export PATH=$HOME/bin:$PATH
 
 alias ls='ls --color=auto'
@@ -21,6 +21,8 @@ alias r='ranger'
 alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
 alias speedtest='speedtest --bytes'
 alias clip='xclip -selection clipboard'
+
+alias discord='com.discordapp.Discord'
 
 # easily skip from root of Android project to code
 alias andSkip='cd app/src/main/java/com/'
@@ -32,3 +34,9 @@ alias dsi='cd ~/Dissertation/'
 bak() {
 	cp $1 $1.bak
 }
+
+alias gra="cd /mnt/data/home/coursework/y3/gra/final/g53gra_framework"
+
+alias diswc="perl ~/Documents/texcount/texcount.pl ~/Dissertation/dissertation_report/dissertation.tex"
+
+
