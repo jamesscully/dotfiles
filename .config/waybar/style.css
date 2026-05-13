@@ -1,0 +1,119 @@
+/* ===== Global ===== */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(30, 30, 46, 0);
+    color: #cdd6f4;
+    border-bottom: 2px solid #414141;
+}
+
+/* ===== Workspace Buttons ===== */
+#workspaces {
+    margin: 0 6px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background: transparent;
+    color: #a6adc8;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+}
+
+#workspaces button:hover {
+    background: #45475a;
+    color: #ffffff;
+}
+
+/* ===== Modules ===== */
+#cpu,
+#memory,
+#network,
+#battery,
+#tray {
+    padding: 0 10px;
+    margin: 4px 3px;
+    background: #ffe4e4;
+    border-radius: 8px;
+}
+
+#pulseaudio {
+    padding: 0 10px;
+    border: #ffc9c9;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 16px 16px 0px 0px;
+}
+
+/* ===== Clock ===== */
+#clock {
+    color: white;
+    font-weight: bold;
+}
+
+/* ===== CPU ===== */
+#cpu {
+    color: #fab387;
+}
+
+/* ===== Memory ===== */
+#memory {
+    color: #94e2d5;
+}
+
+/* ===== Network ===== */
+#network {
+    color: #89dceb;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+/* ===== Audio ===== */
+#pulseaudio {
+
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+/* ===== Battery ===== */
+#battery {
+    color: #a6e3a1;
+}
+
+#battery.warning {
+    color: #f9e2af;
+}
+
+#battery.critical {
+    color: #f38ba8;
+}
+
+/* ===== System Tray ===== */
+#tray {
+    padding: 0 6px;
+}
+
+/* ===== Tooltip ===== */
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid #89b4fa;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
