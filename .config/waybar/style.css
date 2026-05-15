@@ -3,14 +3,21 @@
     border: none;
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 13px;
+    margin-top: 2px;
+    
+    font-size: 14px;
     min-height: 0;
+
 }
+
+@define-color outline #414141;
+@define-color bgcolor #111111;
+@define-color island #1f1f1f;
 
 window#waybar {
     background: rgba(30, 30, 46, 0);
-    color: #cdd6f4;
-    border-bottom: 2px solid #414141;
+    color: #ffffff;
+    /* border-bottom: 2px solid #414141; */
 }
 
 /* ===== Workspace Buttons ===== */
@@ -35,29 +42,75 @@ window#waybar {
     color: #ffffff;
 }
 
+#custom-temputils {
+    background-color: @island;
+    padding: 0 20px;
+
+    margin-right: 16px;
+
+    border-radius: 20px;
+}
+
 /* ===== Modules ===== */
 #cpu,
 #memory,
 #network,
-#battery,
-#tray {
+#battery {
     padding: 0 10px;
     margin: 4px 3px;
     background: #ffe4e4;
     border-radius: 8px;
 }
 
-#pulseaudio {
-    padding: 0 10px;
-    border: #ffc9c9;
+#tray {
+    margin-left: 16px;
+
+    padding: 0 20px;
+
+    background-color: @island;
+
+    /* border-color: @outline;
     border-style: solid;
-    border-width: 2px;
-    border-radius: 16px 16px 0px 0px;
+    border-width: 2px 2px 2px 2px; */
+    border-radius: 32px; 
+
+    transition: padding 0.2s;
+    transition: border-color 1s;
+
+}
+
+#tray:hover {
+    transition: border-color 1s;
+
+    border-color: #ffffff;
+}
+
+
+#pulseaudio {
+    padding: 0 20px;
+    border-color: @outline;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 32px;
+    
+
+    background-color: @island;
+
+    transition: background-color 0.5s;
+}
+
+#pulseaudio:hover {
+    background-color: #4f4f4f;
 }
 
 /* ===== Clock ===== */
 #clock {
     color: white;
+    background-color: @island;
+
+    padding: 0 20px;
+    border-radius: 32px;
+
     font-weight: bold;
 }
 
@@ -81,9 +134,6 @@ window#waybar {
 }
 
 /* ===== Audio ===== */
-#pulseaudio {
-
-}
 
 #pulseaudio.muted {
     color: #6c7086;
@@ -102,18 +152,14 @@ window#waybar {
     color: #f38ba8;
 }
 
-/* ===== System Tray ===== */
-#tray {
-    padding: 0 6px;
-}
 
 /* ===== Tooltip ===== */
 tooltip {
-    background: #1e1e2e;
-    border: 1px solid #89b4fa;
+    background: @bgcolor;
+    border: 1px solid #ffffff;
     border-radius: 8px;
 }
 
 tooltip label {
-    color: #cdd6f4;
+    color: white;
 }

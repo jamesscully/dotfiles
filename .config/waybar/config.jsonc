@@ -7,10 +7,11 @@
     "spacing": 16, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media"
+        // "sway/workspaces",
+        // "sway/mode",
+        // "sway/scratchpad",
+        // "custom/media",
+        "tray"
     ],
     "modules-center": [
         "clock"
@@ -26,14 +27,13 @@
         // "memory",
         // "temperature",
         // "cpu",
-        "custom/temputils",
+        "custom/temputils"
         // "backlight",
         // "keyboard-state",
         //"sway/language",
         //"battery",
         //"battery#bat2",
         //"clock",
-        "tray"
         // "custom/power"
     ],
     // Modules configuration
@@ -107,7 +107,7 @@
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10,
+        "spacing": 20,
         // "icons": {
         //   "blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
@@ -117,8 +117,8 @@
         // "timezone": "America/New_York",
         "interval": 1,
         "format": "{:%a %e %b %H:%M:%S}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+        // "format-alt": "{:%Y-%m-%d}",
     },
     "cpu": {
         "format": "{usage}% ",
@@ -138,7 +138,7 @@
     "custom/temputils": {
         "exec": "~/bashscripts/tempscript.sh",
         "format": "{}",
-        "return-type": "",
+        "return-type": "json",
         "interval": 1
     },
 

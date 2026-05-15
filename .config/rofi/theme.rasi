@@ -1,9 +1,11 @@
 /**
- * User: qball
+ * User: yames
  * Copyright: Dave Davenport
  */
 * {
-    text-color:  #ffeedd;
+    text-color:  #ffffff;
+    font: "JetBrainsMonoNL Nerd Font Propo 11";
+
     background-color:  rgba(0,0,0,0);
     dark: #1c1c1c;
     // Black
@@ -42,18 +44,22 @@
     highlight:     bold #ffffff;
 }
 #window {
-    fullscreen: true;
-    location: west;
-    anchor:   west;
-    border:  0px 2px 0px 0px;
+    fullscreen: false;
+    location: center;
+    // border:  0px 0px 0px 0px;
     text-color: @lightwhite;
 
-    orientation: horizontal;
+
+    width: 35%;
+
+    orientation: vertical;
     children: [mainbox, dummy];
+
 }
 
 #dummy {
     expand: true;
+    background-color: #0ff00f;
 }
 
 #sidebar {
@@ -69,24 +75,35 @@
     width: 20em;
 }
 #inputbar {
-    background-color: @lightblack;
+    // background-color: @lightblack;
     text-color: @lightgreen;
-    padding: 4px;
+    padding: 0 0 0 0;
     border: 0px 0px 2px 0px;
+    border-radius: 32px;
 }
 #mainbox {
     expand: false;
-    background-color: #1c1c1cee;
+    background-color: #1f1f1ff9;
     spacing: 1em;
+    border-radius: 16px;
+    padding: 1em;
+    
 }
 #listview {
-    padding: 0em 0.4em 0em 1em;
-    dynamic: false;
-    lines: 0;
+    padding: 0em 0.4em 0em 0em;
+    dynamic: true;
+    lines: 10;
+    
 }
 #element selected  normal {
-    background-color: @blue;
+    border: 0 0em 0 4px;
+    border-color: white;
 }
+
+#element-text selected normal {
+    border: 0 0 0 8px;
+}
+
 #element normal active {
     text-color: @lightblue;
 }
@@ -94,12 +111,13 @@
     text-color: @lightred;
 }
 #element alternate normal {
+    text-color: red;
 }
 #element alternate active {
     text-color: @lightblue;
 }
 #element alternate urgent {
-    text-color: @lightred;
+    text-color: @lightblue;
 }
 #element selected active {
     background-color: @lightblue;
@@ -112,10 +130,10 @@
 #inputbar {
     children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
 }
+
 #textbox-prompt-colon {
     expand:     false;
-    str:        ":";
+    str:        " ";
     margin:     0px 0.3em 0em 0em ;
-    text-color: @normal-foreground;
 }
 
